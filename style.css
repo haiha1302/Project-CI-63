@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Stint+Ultra+Condensed&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Stint Ultra Condensed', cursive;
+	box-sizing: border-box;
+	/* font-family: 'PT Sans', sans-serif;
+	font-family: 'Stint Ultra Condensed', cursive; */
+	background-color: #ffbd59;
+}
+
+
+
+:root {
+	--yellow-solid : #ffbd59;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	margin-left: 100px;
+}
+
+.menu ul {
+	display: inline-flex;
+	margin : 50px;
+}
+
+.menu ul img {
+	margin-top: -30px;
+}
+
+.menu ul li{
+	list-style: none;
+	margin : 0 20px;
+	color: #b2b1b1;
+	cursor: pointer;
+	font-size: 50px;
+	margin-top: 30px;
+}
+
