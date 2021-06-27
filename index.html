@@ -6,31 +6,46 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
 	<title>Document</title>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+	<script>
+	// Your web app's Firebase configuration
+	const firebaseConfig = {
+		databaseURL: "https://ex-15-06-2021.firebaseio.com",
+		apiKey: "AIzaSyDYFRJpstEhsYPVgnSFKq1eFeUiW7M1iKA",
+		authDomain: "ex-15-06-2021.firebaseapp.com",
+		databaseURL: "https://ex-15-06-2021-default-rtdb.asia-southeast1.firebasedatabase.app",
+		projectId: "ex-15-06-2021",
+		storageBucket: "ex-15-06-2021.appspot.com",
+		messagingSenderId: "369353979213",
+		appId: "1:369353979213:web:33fd18991c34567992f304"
+	};
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+	</script>
+
 </head>
 <body>
-	<div class="container">
-		<div class="menu">
-			<ul>
-				<li><img src="./img/DeathQuiz.png" alt=""></li>
-				<li>Home</li>
-				<li>Huong Dan</li>
-				<li><a href="#" class="">Đăng nhập</a></li>
-				<li><a href="#" class="">Đăng xuất</a></li>
-				<li><a href="#" class="">Đăng ký</a></li>
-			</ul>
+	<header class="container">
+		<div class="logo">
+			<img src="./img/DeathQuiz.png" alt="logo" width="250px">
 		</div>
-	</div>
+		<div class="menu">
+			<button class="btn-menu">Hướng dẫn</button>
+			<button class="btn-menu">Login</button>
+			<button class="btn-menu">Register</button>
+		</div>
+	</header>
 
+	<main>
+		
+	</main>
 
-	<div class="footer">
-		<ul>
-			<li><i class=></i></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-
-		</ul>
-	</div>
+	<footer class="footer">
+	
+	</footer>
 </body>
 </html>
