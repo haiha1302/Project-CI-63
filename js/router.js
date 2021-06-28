@@ -1,22 +1,22 @@
-var root = null
-var useHash = true
-var hash= '#nani'
-window.router = new Navigo(root, useHash, hash)
+const root = null;
+const useHash = true; // Defaults to: false
+const hash = "#"; // Defaults to: '#'
+window.router = new Navigo(root, useHash, hash);
 
-let $main = document.getElementById('main')
+const $app = document.getElementById('change');
 
-window.router.on('/login', () => {
-    $main.innerHTML = '<login-screen></login-screen>'
-}).resolve()
+window.router.on('/start', () => {
+    $app.innerHTML = `<start-screen></start-screen>`;
+}).resolve();
 
-window.router.on('/register', () => {
-    $main.innerHTML = '<register-screen></register-screen>'
-}).resolve()
+window.router.on('/play', () => {
+    $app.innerHTML = `<play-screen></play-screen>`;
+}).resolve();
 
-window.router.on('/index', () => {
-    $main.innerHTML = '<index-screen></-screen>'
-}).resolve()
+window.router.on('/admin', () => {
+    $app.innerHTML = `<admin-screen></admin-screen>`;
+}).resolve();
 
-window.router.notFound(() => {
-    $main.innerHTML = 'Cannot find this website'
-})
+window.router.on('/result', () => {
+    $app.innerHTML = `<result-screen></result-screen>`;
+}).resolve();
