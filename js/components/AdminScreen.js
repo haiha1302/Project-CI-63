@@ -162,7 +162,7 @@ class AdminScreen extends HTMLElement {
                     </ul>
                 </li>
             `
-            this.shadow.ulQuestion.innerHTML = appendUl
+            this.shadow.innerHTML = appendUl
         })
     } 
 }
