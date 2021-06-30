@@ -1,23 +1,22 @@
 import { styleLink } from "../../style/styleLink.js"
 import { Quiz } from "../Quiz.js"
 import { newQuiz } from "./StartScreen.js"
-import { listDatabase } from "../utils.js"
+// import { listDatabase } from "../utils.js"
+
 
 const styleScreen = `
     <style>
-        #mainBody
-        {
+        #mainBody {
             width: 100vw;
             height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center !important;  
             justify-content: center; 
-            background-color:blueviolet !important
+            background-color:blueviolet !important;
         }
         
-        #quiz
-        {
+        #quiz {
             width: 800px;
             height: 400px;
             background-color: #fff;
@@ -26,8 +25,7 @@ const styleScreen = `
             border-radius: 30px;
         }
         
-        #quizHeader
-        {
+        #quizHeader {
             height: 60px;
             background-color: #fff;
             display: flex;
@@ -40,16 +38,18 @@ const styleScreen = `
             z-index: 1;
         }
         
-        #quizBody
-        {
+        #quizBody {
             background-color: rgb(211, 209, 209);
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
             padding: 10px 20px;
         }
+
+        .quizSumQuestion {
+            font-size:16px;
+        }
         
-        #timer
-        {
+        #timer {
             color: white;
             padding: 18px;
             background-color: rgb(130, 18, 182);
@@ -58,18 +58,16 @@ const styleScreen = `
             box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
         }
         
-        .option_group{
+        .option_group {
             margin-left: 0;
             padding-left: 0;
         }
         
-        li
-        {
+        li {
             list-style-type: none;
         }
         
-        .option
-        {
+        .option {
             border: 3px solid transparent;
             border-radius: 50px;
             background-color: white;
@@ -83,14 +81,12 @@ const styleScreen = `
             transition: 500ms;
         }
         
-        .option:hover
-        {
+        .option:hover {
             cursor: pointer;
             border: 3px solid rgb(130, 18, 182);
         }
         
-        .nxtBtn
-        {
+        .nxtBtn {
             background-color: rgb(130, 18, 182) !important;
             border-radius: 50px !important;
             padding: 15px !important;
@@ -98,8 +94,7 @@ const styleScreen = `
             float: right;
         }
         
-        .exitBtn
-        {
+        .exitBtn {
             border-radius: 50px !important;
             width: 200px;
             height: 100px;
@@ -107,14 +102,12 @@ const styleScreen = `
             font-size: xx-large !important;
         }
         
-        .nxtBtn:focus, .exitBtn:focus
-        {
+        .nxtBtn:focus, .exitBtn:focus {
             outline: none !important;
             box-shadow: none !important;
         }
         
-        .nxtBtn:hover, .exitBtn:hover
-        {
+        .nxtBtn:hover, .exitBtn:hover {
             background-color: white !important;
             color: black !important;
             transition: 500ms;
@@ -142,55 +135,63 @@ class MainPlayQuiz extends HTMLElement {
                 <button class="btn btn-danger exitBtn" id="exitBtn">Finish Quiz</button>
             <div id="quiz">
                 <div id="quizHeader">
-                    <h3 class='quizHeader'>Q1/1</h3>
+                    <h3 class='quizSumQuestion'></h3>
                         <span id='timer'>1:20</span>
                 </div>
                     <div id="quizBody">
-                        <h3 class="quizHeader" id="question">Q:1</h3>
+                        <h3 class="quizQuestion" id="question"></h3>
                         <ul class='option_group' id='option_group'>
-                            <li class='option' id="ansA">A</li>
-                            <li class='option' id="ansB">A</li>
-                            <li class='option' id="ansC">A</li>
-                            <li class='option' id="ansD">A</li>
+                            <li class='option' id="ansA"></li>
+                            <li class='option' id="ansB"></li>
+                            <li class='option' id="ansC"></li>
+                            <li class='option' id="ansD"></li>
                         </ul>
-                        <button class='btn btn-primary nxtBtn' onclick='nxtQuestion()'>Next question</button>
+                        <button class='btn btn-primary nxtBtn' id="btnNext">Next question</button>
                     </div>
                 </div>
             </div>
         `
 
         this.shadow.innerHTML = template
+        
+        const listDatabase = []
+        let index=0
 
-        const listDatabase = [];
+        const quizHeader = this.shadow.getElementById('quizHeader')
+        const question = this.shadow.getElementById('question')
+        const ansA = this.shadow.getElementById('ansA')
+        const ansB = this.shadow.getElementById('ansB')
+        const ansC = this.shadow.getElementById('ansC')
+        const ansD = this.shadow.getElementById('ansD')
 
         const getDatabase = async () => {
             const response = await firebase.firestore().collection('questions').get();
             response.docs.forEach((doc) => {
-                listDatabase.push(doc.data());
-                let index = 0
-                const question = this.shadow.getElementById('question')
-                const ansA = this.shadow.getElementById('ansA')
-                const ansB = this.shadow.getElementById('ansB')
-                const ansC = this.shadow.getElementById('ansC')
-                const ansD = this.shadow.getElementById('ansD')
-                const countAnswer = this.shadow.getElementById('quizHeader')
+                listDatabase.push(doc.data())
+            })
+            quizHeader.textContent = `Q${index + 1} / ${listDatabase.length}` 
+            question.textContent = listDatabase[index].question
+            ansA.textContent = listDatabase[index].a
+            ansB.textContent = listDatabase[index].b
+            ansC.textContent = listDatabase[index].c
+            ansD.textContent = listDatabase[index].d
+        }
+        getDatabase()
+
+        this.shadow.getElementById('btnNext').addEventListener('click', () => {
+            index++
+            if(index == listDatabase.length) {
+                router.navigate('/result')
+            }
+            else {
+                quizHeader.textContent = `Q${index + 1} / ${listDatabase.length}` 
                 question.textContent = listDatabase[index].question
                 ansA.textContent = listDatabase[index].a
                 ansB.textContent = listDatabase[index].b
                 ansC.textContent = listDatabase[index].c
                 ansD.textContent = listDatabase[index].d
-
-                // countAnswer.textContent = `${index + 1} / ${newQuiz.sumQuestion}`
-            });
-        }
-
-        getDatabase();
-
-        this.shadow.getElementById('ansA').addEventListener('click', () => {
-            
+            }
         })
-
-        
 
 
         

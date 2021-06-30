@@ -2,104 +2,104 @@ import { styleLink } from "../../style/styleLink.js"
 
 const styleScreen = `
     <style>
-    #mainPanel
-    {
-        background-color: blueviolet !important;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-width: 300px;
-        min-height: 650px;
-    }
-    
-    #panelInner
-    {
-        width: 800px;
-        height: 400px;
-        background-color: #fff;
-        display: grid;
-        grid-template-rows: 60px auto;
-        border-radius: 30px;
-    }
-    #panelInner
-    {
-        height: 650px;
-        width: 1200px;
-        grid-template-rows: 60px auto 62px;
-    }
-    
-    #header{
-        height: 60px;
-        background-color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-        box-shadow: 0 2px 5px 1px rgba(0,0,0,0.3);
-        z-index: 1;
-    }
-    
-    #questionsBody
-    {
-        background-color: rgb(211, 209, 209);
-        padding: 10px 20px;
-        overflow-y: auto;/*when we'll add questions then scroll bar will be needed*/
-    }
-    #delAllBtn, #addBtn
-    {
-        border-radius: 50%;
-        font-size: 30px;
-        padding: 8px 18px;
-        margin: 1px 30px;
-    }
-    #addBtnDiv
-    {
-        display: flex;
-        height: 65px;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 -2px 5px 1px rgba(0, 0, 0, 0.3);
-        border-bottom-right-radius: 30px;
-        border-bottom-left-radius: 30px;
-        border-top-right-radius: 0;
-        border-top-left-radius: 0;
-    }
-    .homeBtn
-    {   
-        border-radius: 20px;
-        left: 70%;
-        position: fixed;
-        top: 40vh;
-        padding: 10px 40px !important;
-    }
-    .panelLi
-    {
-        display: flex;
-        flex-wrap: wrap;
-        min-height: 42px;
-        align-items: center;
-        margin: 10px;
-    }
-    .liBtnAdd, .liBtnCancel, .liBtn
-    {
-        font-size: 25px !important;
-        border-radius: 50% !important;
-        padding: 5px 13px !important;
-        margin: 0 20px;
-        max-height: 50px;
-    }
-    .liBtnAdd
-    {
-        padding: 6px 13px 5px 13px !important;
-    }
-    .liBtnCancel
-    {
-        padding: 6px 13px 13px 13px !important;
-    }
+        #mainPanel
+        {
+            background-color: blueviolet !important;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 300px;
+            min-height: 650px;
+        }
+        
+        #panelInner
+        {
+            width: 800px;
+            height: 400px;
+            background-color: #fff;
+            display: grid;
+            grid-template-rows: 60px auto;
+            border-radius: 30px;
+        }
+        #panelInner
+        {
+            height: 650px;
+            width: 1200px;
+            grid-template-rows: 60px auto 62px;
+        }
+        
+        #header{
+            height: 60px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            box-shadow: 0 2px 5px 1px rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        
+        #questionsBody
+        {
+            background-color: rgb(211, 209, 209);
+            padding: 10px 20px;
+            overflow-y: auto;/*when we'll add questions then scroll bar will be needed*/
+        }
+        #delAllBtn, #addBtn
+        {
+            border-radius: 50%;
+            font-size: 30px;
+            padding: 8px 18px;
+            margin: 1px 30px;
+        }
+        #addBtnDiv
+        {
+            display: flex;
+            height: 65px;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 -2px 5px 1px rgba(0, 0, 0, 0.3);
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+        .homeBtn
+        {   
+            border-radius: 20px;
+            left: 70%;
+            position: fixed;
+            top: 40vh;
+            padding: 10px 40px !important;
+        }
+        .panelLi
+        {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 42px;
+            align-items: center;
+            margin: 10px;
+        }
+        .liBtnAdd, .liBtnCancel, .liBtn
+        {
+            font-size: 25px !important;
+            border-radius: 50% !important;
+            padding: 5px 13px !important;
+            margin: 0 20px;
+            max-height: 50px;
+        }
+        .liBtnAdd
+        {
+            padding: 6px 13px 5px 13px !important;
+        }
+        .liBtnCancel
+        {
+            padding: 6px 13px 13px 13px !important;
+        }
     </style>
 `
 
@@ -156,13 +156,16 @@ class AdminScreen extends HTMLElement {
                         <li style="display: flex;" class="panelLi"><h3>Option 4:&nbsp</h3><input class="form-control w-50"></li>
                         <li style="display: flex;"><h3>Answer:&nbsp</h3><input class="form-control w-50"></li>
                         <li style="display: flex; justify-content: center;">
-                            <button class="btn btn-success liBtnAdd fa fa-check" onclick="addRec(this)"></button>
+                            <button class="btn btn-success liBtnAdd fa fa-plus" onclick="addRec(this)"></button>
                             <button class="btn btn-danger liBtnCancel fa fa-times" onclick="discardRec(this)"></button>
                         </li>
                     </ul>
                 </li>
             `
             this.shadow.innerHTML = appendUl
+
+            
+
         })
     } 
 }
