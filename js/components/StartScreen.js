@@ -9,7 +9,7 @@ const styleScreen = `
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color:blueviolet !important
+            flex-direction:column;
         }
 
         .startBtn, .adminBtn {
@@ -17,8 +17,35 @@ const styleScreen = `
             border-radius: 20px !important;
             padding: 10px 40px 10px 40px !important;
             border: none !important;
-            margin: 20px !important;
+            margin-top: 10px !important;
             transition: 500ms;
+            background-color: #1e90ff !important;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 50px;
+        }
+        
+        .nameGame {
+            font-weight: 600;
+            font-size: 55px;
+        }
+
+        .ruleGameTitle {
+            font-size: 35px;
+        }
+
+        .ruleGameSub {
+            color: red;
+            list-style-type: none;
+            font-size: 25px;
+        }
+
+        .ruleGameSub li {
+            padding: 5px;
         }
     </style>
 `
@@ -41,7 +68,21 @@ class StartScreen extends HTMLElement {
         const template = `
             ${styleLink}
             ${styleScreen}
+            
             <div class="start" id="start">
+            <header class="header">
+                <h3 class="nameGame">😎Quiz về Tình Bạn Thú Vị Nhất!😎</h3>
+                <div class="ruleGame">
+                    <h4 class="ruleGameTitle">Hướng dẫn: </h4>
+                    <ul class="ruleGameSub">
+                        <li>📝 Tạo tài khoản đăng nhập để tạo bộ câu hỏi.</li>
+                        <li>🙆 Người chơi trả lời bất kỳ câu hỏi về bạn thân của mình.</li>
+                        <li>🔥 Vậy là bạn của bạn có thể chơi được rồi.</li>
+                        <li>🤔 Bạn của bạn phải cố đoán ra câu trả lời đúng.</li>
+                        <li>👨‍❤️‍💋‍👨 Kiểm tra điểm của bạn bè bạn.</li>
+                    </ul>
+                </div>
+            </header>
                 <div>
                     <button class="btn btn-success startBtn" id="btnStart">Start</button>
                     <button class="btn btn-success adminBtn" id="btnAdmin">Admin</button>
@@ -49,8 +90,6 @@ class StartScreen extends HTMLElement {
             </div>
         `
         this.shadow.innerHTML = template
-
-        newQuiz = new Quiz (5, 30, 10)
 
         this.shadow.getElementById('btnStart').addEventListener('click', () => {
             router.navigate('/play')

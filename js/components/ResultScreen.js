@@ -95,12 +95,17 @@ class ResultScreen extends HTMLElement {
                         <td></td>
                     </tbody>
                 </table>
-                <button class='btn btn-primary rstBtn' onclick='homePageReAttempt()'>Re-Attempt Quiz</button>
+                <button class='btn btn-primary rstBtn' id="mainScreen">Re-Attempt Quiz</button>
             </div>
         </div>
     </div>
         `
         this.shadow.innerHTML = template
+
+
+        this.shadow.getElementById('mainScreen').addEventListener('click', () => {
+            router.navigate('/start')
+        })
     }
 }
 

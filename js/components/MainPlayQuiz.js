@@ -1,7 +1,6 @@
 import { styleLink } from "../../style/styleLink.js"
 import { Quiz } from "../Quiz.js"
 import { newQuiz } from "./StartScreen.js"
-// import { listDatabase } from "../utils.js"
 
 
 const styleScreen = `
@@ -121,6 +120,7 @@ class MainPlayQuiz extends HTMLElement {
         this.shadow = this.attachShadow({
             mode: 'open',
         });
+        quiz: null;
     }
 
     static get observedAttributes() {}
@@ -156,6 +156,7 @@ class MainPlayQuiz extends HTMLElement {
         
         const listDatabase = []
         let index=0
+        let sumResult = 0
 
         const quizHeader = this.shadow.getElementById('quizHeader')
         const question = this.shadow.getElementById('question')
@@ -167,6 +168,7 @@ class MainPlayQuiz extends HTMLElement {
         const getDatabase = async () => {
             const response = await firebase.firestore().collection('questions').get();
             response.docs.forEach((doc) => {
+                
                 listDatabase.push(doc.data())
             })
             quizHeader.textContent = `Q${index + 1} / ${listDatabase.length}` 
@@ -193,6 +195,58 @@ class MainPlayQuiz extends HTMLElement {
             }
         })
 
+        this.shadow.getElementById('ansA').addEventListener('click', () => {
+            if(listDatabase[index].answer == listDatabase[index].a) {
+                console.log('true');
+                Quiz.correct()
+                console.log(sumResult);
+            }
+            else {
+                console.log('false');
+            }
+        })
+
+        this.shadow.getElementById('ansB').addEventListener('click', () => {
+            if(listDatabase[index].answer == listDatabase[index].b) {
+                console.log('true-2');
+                Quiz.correct()
+                console.log(sumResult);
+            }
+            else {
+                console.log('false-2');
+            }
+        })
+
+        this.shadow.getElementById('ansC').addEventListener('click', () => {
+            if(listDatabase[index].answer == listDatabase[index].c) {
+                console.log('true-3');
+                Quiz.correct()
+                console.log(sumResult);
+            }
+            else {
+                console.log('false-3');
+            }
+        })
+
+        this.shadow.getElementById('ansD').addEventListener('click', () => {
+            if(listDatabase[index].answer == listDatabase[index].d) {
+                console.log('true-4');
+                Quiz.correct()
+                console.log(sumResult);
+            }
+            else {
+                console.log('false-4');
+            }
+        })
+
+        // export var sumResult = () => {
+        //     let sum = 0
+        //     sum+=1
+        // }
+
+        this.shadow.getElementById('exitBtn').addEventListener('click', () => {
+            router.navigate('/result')
+        })
 
         
         // let timeClock
