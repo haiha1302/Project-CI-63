@@ -2,8 +2,7 @@ import { styleLink } from "../../style/styleLink.js"
 
 const styleScreen = `
     <style>
-        #mainPanel
-        {
+        #mainPanel {
             background-color: blueviolet !important;
             width: 100vw;
             height: 100vh;
@@ -14,8 +13,7 @@ const styleScreen = `
             min-height: 650px;
         }
         
-        #panelInner
-        {
+        #panelInner {
             width: 800px;
             height: 400px;
             background-color: #fff;
@@ -23,14 +21,14 @@ const styleScreen = `
             grid-template-rows: 60px auto;
             border-radius: 30px;
         }
-        #panelInner
-        {
+        
+        #panelInner {
             height: 650px;
             width: 1200px;
             grid-template-rows: 60px auto 62px;
         }
         
-        #header{
+        #header {
             height: 60px;
             background-color: #fff;
             display: flex;
@@ -43,21 +41,20 @@ const styleScreen = `
             z-index: 1;
         }
         
-        #questionsBody
-        {
+        #questionsBody {
             background-color: rgb(211, 209, 209);
             padding: 10px 20px;
             overflow-y: auto;/*when we'll add questions then scroll bar will be needed*/
         }
-        #delAllBtn, #addBtn
-        {
+
+        #delAllBtn, #addBtn {
             border-radius: 50%;
             font-size: 30px;
             padding: 8px 18px;
             margin: 1px 30px;
         }
-        #addBtnDiv
-        {
+
+        #addBtnDiv {
             display: flex;
             height: 65px;
             justify-content: center;
@@ -68,36 +65,36 @@ const styleScreen = `
             border-top-right-radius: 0;
             border-top-left-radius: 0;
         }
-        .homeBtn
-        {   
+
+        .homeBtn {   
             border-radius: 20px;
             left: 70%;
             position: fixed;
             top: 40vh;
             padding: 10px 40px !important;
         }
-        .panelLi
-        {
+
+        .panelLi {
             display: flex;
             flex-wrap: wrap;
             min-height: 42px;
             align-items: center;
             margin: 10px;
         }
-        .liBtnAdd, .liBtnCancel, .liBtn
-        {
+
+        .liBtnAdd, .liBtnCancel, .liBtn {
             font-size: 25px !important;
             border-radius: 50% !important;
             padding: 5px 13px !important;
             margin: 0 20px;
             max-height: 50px;
         }
-        .liBtnAdd
-        {
+
+        .liBtnAdd {
             padding: 6px 13px 5px 13px !important;
         }
-        .liBtnCancel
-        {
+
+        .liBtnCancel {
             padding: 6px 13px 13px 13px !important;
         }
     </style>
@@ -170,8 +167,6 @@ class AdminScreen extends HTMLElement {
             const addAnsD = this.shadow.getElementById('ansD')
             const addAnswer = this.shadow.getElementById('addAnswer')
 
-            
-            
         })
     } 
 }

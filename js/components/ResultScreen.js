@@ -65,43 +65,41 @@ class ResultScreen extends HTMLElement {
 
     connectedCallback() {
         const template = `
-        ${styleLink}
-        ${styleScreen}
-        <div id="mainBody">
-        <div id="quiz">
-            <div id="quizHeader">
-                <h3>Result</h3>
+            ${styleLink}
+            ${styleScreen}
+            <div id="mainBody">
+                <div id="quiz">
+                    <div id="quizHeader">
+                        <h3>Result</h3>
+                    </div>
+                    <div id="quizBody">
+                        <table class='table table-bordered'>
+                            <thead class='thead-dark'>
+                                <th>Q1</th>
+                            </thead>
+                            <tbody>
+                                <td><img style='width:20px' src='./assets/check.png'></td>
+                                <td><img style='width:20px' src='./assets/cancel.png'></td>
+                            </tbody>
+                        </table>
+                        <table  class='table table-bordered'>
+                            <thead class='thead-dark'>
+                                <th>Points</th>
+                                <th>Percentage</th>
+                                <th>Time Taken (mm:ss)</th>
+                            </thead>
+                            <tbody>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tbody>
+                        </table>
+                        <button class='btn btn-primary rstBtn' id="mainScreen">Re-Attempt Quiz</button>
+                    </div>
+                </div>
             </div>
-            <div id="quizBody">
-                <table class='table table-bordered'>
-                    <thead class='thead-dark'>
-                        <th>Q1</th>
-                    </thead>
-                    <tbody>
-                        <td><img style='width:20px' src='./assets/check.png'></td>
-                        <td><img style='width:20px' src='./assets/cancel.png'></td>
-                    
-                    </tbody>
-                </table>
-                <table  class='table table-bordered'>
-                    <thead class='thead-dark'>
-                        <th>Points</th>
-                        <th>Percentage</th>
-                        <th>Time Taken (mm:ss)</th>
-                    </thead>
-                    <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tbody>
-                </table>
-                <button class='btn btn-primary rstBtn' id="mainScreen">Re-Attempt Quiz</button>
-            </div>
-        </div>
-    </div>
         `
         this.shadow.innerHTML = template
-
 
         this.shadow.getElementById('mainScreen').addEventListener('click', () => {
             router.navigate('/start')
