@@ -1,7 +1,6 @@
 import { styleLink } from "../../style/styleLink.js"
 import { Quiz } from "../Quiz.js"
-import { newQuiz } from "./StartScreen.js"
-
+// import { newQuiz } from "./StartScreen.js"
 
 const styleScreen = `
     <style>
@@ -120,133 +119,151 @@ class MainPlayQuiz extends HTMLElement {
         this.shadow = this.attachShadow({
             mode: 'open',
         });
-        quiz: null;
+        
+        Quiz = {
+            question: '',
+            answer: '',
+            a: '',
+            b: '',
+            c: '',
+            d: ''
+        }
     }
 
-    static get observedAttributes() {}
+    static get observedAttributes() {
+        return ['id', 'question', 'answer', 'a', 'b', 'c', 'd']
+    }
 
     attributeChangedCallback(name, oldValue, newValue) {}
 
     connectedCallback() {
-        const template = `
+        let template = `
             ${styleLink}
             ${styleScreen}
             <div id="mainBody">
                 <button class="btn btn-danger exitBtn" id="exitBtn">Finish Quiz</button>
             <div id="quiz">
                 <div id="quizHeader">
-                    <h3 class='quizSumQuestion'></h3>
+                    <h3 class='quizSumQuestion'>${this.question} / ${this.sumQuestion}</h3>
                         <span id='timer'>1:20</span>
                 </div>
                     <div id="quizBody">
-                        <h3 class="quizQuestion" id="question"></h3>
+                        <h3 class="quizQuestion" id="question">${this.question}</h3>
                         <ul class='option_group' id='option_group'>
-                            <li class='option' id="ansA"></li>
-                            <li class='option' id="ansB"></li>
-                            <li class='option' id="ansC"></li>
-                            <li class='option' id="ansD"></li>
+                            <li class='option' id="ansA">${this.a}</li>
+                            <li class='option' id="ansB">${this.b}</li>
+                            <li class='option' id="ansC">${this.c}</li>
+                            <li class='option' id="ansD">${this.d}</li>
                         </ul>
                         <button class='btn btn-primary nxtBtn' id="btnNext">Next question</button>
                     </div>
                 </div>
             </div>
-        `
+        `;
 
         this.shadow.innerHTML = template
+
         
-        const listDatabase = []
-        let index=0
-        let sumResult = 0
+        
+        // let stringData = ''
+        // let index=0
+        // let sumResult = 0
+        // let listQuestion = {}
 
-        const quizHeader = this.shadow.getElementById('quizHeader')
-        const question = this.shadow.getElementById('question')
-        const ansA = this.shadow.getElementById('ansA')
-        const ansB = this.shadow.getElementById('ansB')
-        const ansC = this.shadow.getElementById('ansC')
-        const ansD = this.shadow.getElementById('ansD')
+        // const quizHeader = this.shadow.getElementById('quizHeader')
+        // const question = this.shadow.getElementById('question')
+        // const ansA = this.shadow.getElementById('ansA')
+        // const ansB = this.shadow.getElementById('ansB')
+        // const ansC = this.shadow.getElementById('ansC')
+        // const ansD = this.shadow.getElementById('ansD')
 
-        const getDatabase = async () => {
-            const response = await firebase.firestore().collection('questions').get();
-            response.docs.forEach((doc) => {
-                
-                listDatabase.push(doc.data())
-            })
-            quizHeader.textContent = `Q${index + 1} / ${listDatabase.length}` 
-            question.textContent = listDatabase[index].question
-            ansA.textContent = listDatabase[index].a
-            ansB.textContent = listDatabase[index].b
-            ansC.textContent = listDatabase[index].c
-            ansD.textContent = listDatabase[index].d
-        }
-        getDatabase()
+        // const getDatabase = async () => {
+        //     let stringData = ''
+        //     const response = await firebase.firestore().collection('questions').get();
+        //     response.docs.forEach((doc) => {
+        //         const data = doc.data()
+        //         const dataQuestion = new Quiz (doc.id, data.question, data.answer, data.a, data.b, data.c, data.d)
+        //         stringData += dataQuestion.show()
+        //         listQuestion.push(stringData)
+        //         console.log(dataQuestion);
+        //     })
+        //     // quizHeader.textContent = `Q${index + 1} / ${listDatabase.length}` 
+        //     // question.textContent = listDatabase[index].question
+        //     // ansA.textContent = listDatabase[index].a
+        //     // ansB.textContent = listDatabase[index].b
+        //     // ansC.textContent = listDatabase[index].c
+        //     // ansD.textContent = listDatabase[index].d
+        // }
+        // getDatabase()
 
-        this.shadow.getElementById('btnNext').addEventListener('click', () => {
-            index++
-            if(index == listDatabase.length) {
-                router.navigate('/result')
-            }
-            else {
-                quizHeader.textContent = `Q${index + 1} / ${listDatabase.length}` 
-                question.textContent = listDatabase[index].question
-                ansA.textContent = listDatabase[index].a
-                ansB.textContent = listDatabase[index].b
-                ansC.textContent = listDatabase[index].c
-                ansD.textContent = listDatabase[index].d
-            }
-        })
+        
+        // this.shadow.getElementById('btnNext').addEventListener('click', () => {
+        //     index++
+        //     if(index == listDatabase.length) {
+        //         router.navigate('/result')
+        //     }
+        //     else {
+        //         quizHeader.textContent = `Q${index + 1} / ${listDatabase.length}` 
+        //         question.textContent = listDatabase[index].question
+        //         ansA.textContent = listDatabase[index].a
+        //         ansB.textContent = listDatabase[index].b
+        //         ansC.textContent = listDatabase[index].c
+        //         ansD.textContent = listDatabase[index].d
+        //     }
+        // })
 
-        this.shadow.getElementById('ansA').addEventListener('click', () => {
-            if(listDatabase[index].answer == listDatabase[index].a) {
-                console.log('true');
-                Quiz.correct()
-                console.log(sumResult);
-            }
-            else {
-                console.log('false');
-            }
-        })
+        // this.shadow.getElementById('ansA').addEventListener('click', () => {
+        //     if(listDatabase[index].answer == listDatabase[index].a) {
+        //         console.log('true');
+        //         Quiz.correct()
+        //         console.log(sumResult);
+        //     }
+        //     else {
+        //         console.log('false');
+        //     }
+        // })
 
-        this.shadow.getElementById('ansB').addEventListener('click', () => {
-            if(listDatabase[index].answer == listDatabase[index].b) {
-                console.log('true-2');
-                Quiz.correct()
-                console.log(sumResult);
-            }
-            else {
-                console.log('false-2');
-            }
-        })
+        // this.shadow.getElementById('ansB').addEventListener('click', () => {
+        //     if(listDatabase[index].answer == listDatabase[index].b) {
+        //         console.log('true-2');
+        //         Quiz.correct()
+        //         console.log(sumResult);
+        //     }
+        //     else {
+        //         console.log('false-2');
+        //     }
+        // })
 
-        this.shadow.getElementById('ansC').addEventListener('click', () => {
-            if(listDatabase[index].answer == listDatabase[index].c) {
-                console.log('true-3');
-                Quiz.correct()
-                console.log(sumResult);
-            }
-            else {
-                console.log('false-3');
-            }
-        })
+        // this.shadow.getElementById('ansC').addEventListener('click', () => {
+        //     if(listDatabase[index].answer == listDatabase[index].c) {
+        //         console.log('true-3');
+        //         Quiz.correct()
+        //         console.log(sumResult);
+        //     }
+        //     else {
+        //         console.log('false-3');
+        //     }
+        // })
 
-        this.shadow.getElementById('ansD').addEventListener('click', () => {
-            if(listDatabase[index].answer == listDatabase[index].d) {
-                console.log('true-4');
-                Quiz.correct()
-                console.log(sumResult);
-            }
-            else {
-                console.log('false-4');
-            }
-        })
+        // this.shadow.getElementById('ansD').addEventListener('click', () => {
+        //     if(listDatabase[index].answer == listDatabase[index].d) {
+        //         console.log('true-4');
+        //         Quiz.correct()
+        //         console.log(sumResult);
+        //     }
+        //     else {
+        //         console.log('false-4');
+        //     }
+        // })
 
         // export var sumResult = () => {
         //     let sum = 0
         //     sum+=1
         // }
 
-        this.shadow.getElementById('exitBtn').addEventListener('click', () => {
-            router.navigate('/result')
-        })
+        // this.shadow.getElementById('exitBtn').addEventListener('click', () => {
+        //     router.navigate('/result')
+        // })
 
         
         // let timeClock
@@ -263,6 +280,54 @@ class MainPlayQuiz extends HTMLElement {
         //     }
         // }, 1000)
 
+    }
+    get id() {
+        return this.getAttribute("id");
+    }
+    set id(val) {
+        this.setAttribute("id", val);
+    }
+
+    get question() {
+        return this.getAttribute("question");
+    }
+    set question(val) {
+        this.setAttribute("question", val);
+    }
+
+    get answer() {
+        return this.getAttribute("answer");
+    }
+    set answer(val) {
+        this.setAttribute("answer", val);
+    }
+
+    get a() {
+        return this.getAttribute("a");
+    }
+    set a(val) {
+        this.setAttribute("a", val);
+    }
+
+    get b() {
+        return this.getAttribute("b");
+    }
+    set b(val) {
+        this.setAttribute("b", val);
+    }
+
+    get c() {
+        return this.getAttribute("c");
+    }
+    set c(val) {
+        this.setAttribute("c", val);
+    }
+    
+    get d() {
+        return this.getAttribute("d");
+    }
+    set d(val) {
+        this.setAttribute("d", val);
     }
 }
 

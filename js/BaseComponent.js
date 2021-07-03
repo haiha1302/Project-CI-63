@@ -1,6 +1,7 @@
 class BaseComponent extends HTMLElement {
     props
     state
+    Quiz 
     constructor() {
         super()
         this._shadowRoot = this.attachShadow({
@@ -8,6 +9,7 @@ class BaseComponent extends HTMLElement {
         })
         this.props = {}
         this.state = {}
+        this.Quiz = {}
     }
 
     connectedCallback() {
@@ -16,6 +18,7 @@ class BaseComponent extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         this.props[name] = newValue
+        this.Quiz[name] = newValue
         this.render()
     }
 

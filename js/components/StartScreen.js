@@ -95,7 +95,7 @@ class StartScreen extends HTMLElement {
         })
 
         this.shadow.getElementById('btnAdmin').addEventListener('click', () => {
-            router.navigate('/admin')
+            router.navigate('/login')
         })
     }
 }
