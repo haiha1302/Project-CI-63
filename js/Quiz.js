@@ -1,12 +1,11 @@
 export class Quiz {
-    constructor(id, question, answer, a, b, c, d){
+    constructor(question, answer, a, b, c, d){
         // this._scoreCount = scoreCount;  // điểm cộng trừ
         // this._sumQuestion = sumQuestion;   // tổng số câu hỏi
         // this._timeAnswer = timeAnswer;  // thời gian trả lời
         // this._scoreSetting = scoreSetting; // chế độ tính điểm
         // this._countCorrect = 0;  // số câu đúng
         // this._timeOut = false;
-        this._id = id
         this._question = question;
         this._answer = answer;
         this._a = a;

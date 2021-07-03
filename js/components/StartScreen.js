@@ -3,11 +3,92 @@ import { Quiz } from "../Quiz.js"
 
 const styleScreen = `
     <style>
-        .start {
+    * {
+	margin: 0;
+	padding: 0;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	background: #3b4c8b;
+}
+
+.menu ul {
+	display: inline-flex;
+	margin: 50px;
+}
+
+.menu ul li {
+	list-style: none;
+	margin: 0 20px;
+	color: #fffdfd;
+	cursor : pointer;
+	
+}
+
+.logo {
+	margin-top: -40px;
+	border: 2px solid transparent;
+	border-radius: 10px;
+	background-image: linear-gradient(#ffdc62,#ffdc62), radial-gradient(circle at top left, #fd00da,#19d7f8);
+	background-origin: border-box;
+	background-clip: content-box,border-box;
+}
+
+.logo span {
+	display: block;
+	padding: 8px 22px;
+	font-size: 25px;
+    color: #4257b2;
+}
+
+.login-btn  {
+	top : 40px;
+	right: 300px;
+	position: absolute;
+	color: #fff;
+	text-decoration: none;
+	border: 2px solid transparent;
+	border-radius: 10px;
+	background-image: linear-gradient(#4257b2,#4257b2), radial-gradient(circle at top left, #fd00da,#19d7f8);
+	background-origin: border-box;
+	background-clip: content-box,border-box;
+}
+
+.login-btn span {
+	display: block;
+	padding: 8px 22px;
+	font-size: 25px;
+}
+
+.register-btn {
+	top : 40px;
+	right: 100px;
+	position: absolute;
+	text-decoration: none;
+	border: 2px solid transparent;
+	border-radius: 10px;
+	background-image: linear-gradient(#ffdc62,#ffdc62), radial-gradient(circle at top left, #fd00da,#19d7f8);
+	background-origin: border-box;
+	background-clip: content-box,border-box;
+}
+
+.register-btn span {
+	display: block;
+	padding: 8px 22px;
+	color :rgb(24, 8, 235);
+	font-size : 25px;
+}
+
+
+
+.start {
+	background-color: #1e90ff;
             width: 100vw;
             height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
             flex-direction:column;
         }
@@ -19,7 +100,8 @@ const styleScreen = `
             border: none !important;
             margin-top: 10px !important;
             transition: 500ms;
-            background-color: #1e90ff !important;
+            background-color: #ffdc62 !important;
+	    color :rgb(24, 8, 235)
         }
 
         .header {
@@ -32,14 +114,16 @@ const styleScreen = `
         .nameGame {
             font-weight: 600;
             font-size: 55px;
+	    color :rgb(255, 255, 255)
         }
 
         .ruleGameTitle {
             font-size: 35px;
+	    color :rgb(255, 255, 255)
         }
 
         .ruleGameSub {
-            color: red;
+            color: rgb(255, 255, 255);
             list-style-type: none;
             font-size: 25px;
         }
@@ -68,7 +152,17 @@ class StartScreen extends HTMLElement {
         const template = `
             ${styleLink}
             ${styleScreen}
-            <div class="start" id="start">
+            <div class="container">
+		<div class="menu">
+			<ul>
+				<li class="logo" id="logo-quiz"><span>Quiz App</span></li>
+				<li class="login-btn" id="btn-loginScreen"><span>Login</span></li>
+				<li class="register-btn" id="btn-registerScreen"><span>Register</span></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="start" id="start">
                 <header class="header">
                     <h3 class="nameGame">😎Quiz về Tình Bạn Thú Vị Nhất!😎</h3>
                     <div class="ruleGame">
@@ -84,7 +178,7 @@ class StartScreen extends HTMLElement {
                 </header>
                 <div>
                     <button class="btn btn-success startBtn" id="btnStart">Start</button>
-                    <button class="btn btn-success adminBtn" id="btnAdmin">Admin</button>
+                    <button class="btn btn-success adminBtn" id="btnAdmin">Join with us?</button>
                 </div>
             </div>
         `

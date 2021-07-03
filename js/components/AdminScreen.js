@@ -3,7 +3,7 @@ import { styleLink } from "../../style/styleLink.js"
 const styleScreen = `
     <style>
         #mainPanel {
-            background-color: blueviolet !important;
+            background-color: #4257b2 !important;
             width: 100vw;
             height: 100vh;
             display: flex;

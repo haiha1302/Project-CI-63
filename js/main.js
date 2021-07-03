@@ -13,15 +13,21 @@ import "./components/MainPlayQuiz.js";
 import './components/AdminScreen.js'
 import './components/ResultScreen.js'
 
+const listDatabase = []
+
 export const getDatabase = async () => {
-    let stringData = ''
+  
     const response = await firebase.firestore().collection('questions').get();
     response.docs.forEach((doc) => {
         const data = doc.data()
         const dataQuestion = new Quiz (doc.id, data.question, data.answer, data.a, data.b, data.c, data.d)
-        stringData = dataQuestion.show()
-        console.log(dataQuestion);
+        
+        // console.log(dataQuestion);
+        listDatabase.push(dataQuestion)
+       
     })
+    // console.log(listDatabase[0]);
 }
 
 getDatabase()
+

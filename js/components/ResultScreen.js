@@ -2,52 +2,58 @@ import { styleLink } from "../../style/styleLink.js"
 
 const styleScreen = `
     <style>
-        #mainBody
-        {
-            background-color: blueviolet !important;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center !important;
-            justify-content: center;   
-        }
-        
-        #quiz
-        {
-            width: 800px;
-            height: 400px;
-            background-color: #fff;
-            display: grid;
-            grid-template-rows: 60px auto;
-            border-radius: 30px;
-        }
-        
-        #quizHeader
-        {
-            height: 60px;
-            background-color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-            box-shadow: 0 2px 5px 1px rgba(0,0,0,0.3);
-            z-index: 1;
-        }
-        /* #quizHeader
-        {
-            width: 800px;
-        } */
-        
-        #quizBody
-        {
-            background-color: rgb(211, 209, 209);
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            padding: 10px 20px;
-        }
+    
+    #mainBody
+    {
+        background-color: #3b4c9b !important;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+        justify-content: center;   
+    }
+    
+    #quiz
+    {
+        width: 800px;
+        height: 400px;
+        background-color: #fff;
+        display: grid;
+        grid-template-rows: 60px auto;
+        border-radius: 30px;
+    }
+    
+    #quizHeader
+    {
+        height: 60px;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        box-shadow: 0 2px 5px 1px rgba(0,0,0,0.3);
+        z-index: 1;
+    }
+    /* #quizHeader
+    {
+        width: 800px;
+    } */
+    
+    #quizBody
+    {
+        background-color: rgb(211, 209, 209);
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        padding: 10px 20px;
+    }
+    
+    .btn-primary:hover {
+        background-color : #ffdc62 !important;
+        color : #3ccfcf
+    }
     </style>
 `
 
@@ -78,8 +84,8 @@ class ResultScreen extends HTMLElement {
                                 <th>Q1</th>
                             </thead>
                             <tbody>
-                                <td><img style='width:20px' src='./assets/check.png'></td>
-                                <td><img style='width:20px' src='./assets/cancel.png'></td>
+                                <td><img style='width:20px' src='./assets/check_icon.png'></td>
+                                <td><img style='width:20px' src='./assets/times_icon.png'></td>
                             </tbody>
                         </table>
                         <table  class='table table-bordered'>
