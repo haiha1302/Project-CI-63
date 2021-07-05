@@ -114,8 +114,8 @@ class AdminScreen extends HTMLElement {
 
     connectedCallback() {
         const template = `
-            ${styleLink}
             ${styleScreen}      
+            ${styleLink}
             <div id="mainPanel" >
                 <div id="panelInner">
                     <div id="header">
@@ -123,21 +123,21 @@ class AdminScreen extends HTMLElement {
                     </div>
                     <div id="questionsBody">
                         <ul id="questionsUl">
-                        <li class="panelLi" style="background-color: grey; border-radius: 30px; padding: 10px 30px">
-                        <h3>Q:&nbsp</h3>
-                        <input type="text" class="form-control w-75" id="addQuestion">
-                            <ul style="width: 1000px">
-                                <li class="panelLi"><h3>Option 1:&nbsp</h3><input class="form-control w-50" id="ansA"></li>
-                                <li class="panelLi"><h3>Option 2:&nbsp</h3><input class="form-control w-50" id="ansB"></li>
-                                <li class="panelLi"><h3>Option 3:&nbsp</h3><input class="form-control w-50" id="ansC"></li>
-                                <li class="panelLi"><h3>Option 4:&nbsp</h3><input class="form-control w-50" id="ansD"></li>
-                                <li style="display: flex;"><h3>Answer:&nbsp</h3><input class="form-control w-50" id="addAnswer"></li>
-                                <li style="display: flex; justify-content: center;">
-                                    <button class="btn btn-success liBtnAdd fa fa-plus" id="addQuiz"></button>
-                                    <button class="btn btn-danger liBtnCancel fa fa-times"></button>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="panelLi" style="background-color: grey; border-radius: 30px; padding: 10px 30px">
+                            <h3>Q:&nbsp</h3>
+                            <input type="text" class="form-control w-75" id="addQuestion">
+                                <ul style="width: 1000px">
+                                    <li class="panelLi"><h3>Option 1:&nbsp</h3><input class="form-control w-50" id="ansA"></li>
+                                    <li class="panelLi"><h3>Option 2:&nbsp</h3><input class="form-control w-50" id="ansB"></li>
+                                    <li class="panelLi"><h3>Option 3:&nbsp</h3><input class="form-control w-50" id="ansC"></li>
+                                    <li class="panelLi"><h3>Option 4:&nbsp</h3><input class="form-control w-50" id="ansD"></li>
+                                    <li style="display: flex;"><h3>Answer:&nbsp</h3><input class="form-control w-50" id="addAnswer"></li>
+                                    <li style="display: flex; justify-content: center;">
+                                        <button class="btn btn-success liBtnAdd fas fa-plus" id="addQuiz"></button>
+                                        <button class="btn btn-danger liBtnCancel fa fa-times"></button>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                         <button class="btn btn-danger homeBtn" onclick="homePage()">Done</button>
                     </div>
@@ -152,24 +152,24 @@ class AdminScreen extends HTMLElement {
         this.shadow.innerHTML = template
         
         this.shadow.getElementById('addBtn').addEventListener('click', () => {
-            const ulQuestion = document.getElementById('quesstionsUl')
+            const ulQuestion = document.getElementById('questionsUl')
             const appendUl = `
                 ${styleLink}
                 ${styleScreen}
                 <li class="panelLi" style="background-color: grey; border-radius: 30px; padding: 10px 30px">
                 <h3>Q:&nbsp</h3>
                 <input type="text" class="form-control w-75" id="addQuestion">
-                    <ul style="width: 1000px">
-                        <li class="panelLi"><h3>Option 1:&nbsp</h3><input class="form-control w-50" id="ansA"></li>
-                        <li class="panelLi"><h3>Option 2:&nbsp</h3><input class="form-control w-50" id="ansB"></li>
-                        <li class="panelLi"><h3>Option 3:&nbsp</h3><input class="form-control w-50" id="ansC"></li>
-                        <li class="panelLi"><h3>Option 4:&nbsp</h3><input class="form-control w-50" id="ansD"></li>
-                        <li style="display: flex;"><h3>Answer:&nbsp</h3><input class="form-control w-50" id="addAnswer"></li>
-                        <li style="display: flex; justify-content: center;">
-                            <button class="btn btn-success liBtnAdd fa fa-plus" id="addQuiz"></button>
-                            <button class="btn btn-danger liBtnCancel fa fa-times"></button>
-                        </li>
-                    </ul>
+                <ul style="width: 1000px">
+                    <li class="panelLi"><h3>Option 1:&nbsp</h3><input class="form-control w-50" id="ansA"></li>
+                    <li class="panelLi"><h3>Option 2:&nbsp</h3><input class="form-control w-50" id="ansB"></li>
+                    <li class="panelLi"><h3>Option 3:&nbsp</h3><input class="form-control w-50" id="ansC"></li>
+                    <li class="panelLi"><h3>Option 4:&nbsp</h3><input class="form-control w-50" id="ansD"></li>
+                    <li style="display: flex;"><h3>Answer:&nbsp</h3><input class="form-control w-50" id="addAnswer"></li>
+                    <li style="display: flex; justify-content: center;">
+                        <button class="btn btn-success liBtnAdd fa fa-plus" id="addQuiz"></button>
+                        <button class="btn btn-danger liBtnCancel fa fa-times"></button>
+                    </li>
+                </ul>
                 </li>
             `
             this.shadow.innerHTML = appendUl

@@ -1,26 +1,27 @@
-import { BaseComponent } from "../BaseComponent.js";
+import { BaseComponent } from "../BaseComponent.js"
 
 const style = /*html*/ `
-<style>
-.input-main {
-    width: 89%;
-    height:30px;
-    padding: 5px 20px;
-    margin: 8px 0;
-    font-size: 14px;
-    border: 1px solid black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.input-error {
-    font-size: 13px;
-    color: #DB5145;
-}
-</style>
-`;
+    <style>
+        .input-main {
+            width: 100%;
+            height:30px;
+            padding: 5px 20px;
+            margin: 8px 0;
+            font-size: 14px;
+            border: 1px solid black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .input-error {
+            font-size: 13px;
+            color: #DB5145;
+        }
+    </style>
+`
 
 class InputWrapper extends BaseComponent {
     constructor() {
-        super();
+        super()
 
         this.props = {
             label: '',
@@ -28,11 +29,11 @@ class InputWrapper extends BaseComponent {
             error: '',
             value: '',
             placeholder: '',
-        };
+        }
     }
 
     static get observedAttributes() {
-        return ['label', 'type', 'error', 'value', 'placeholder'];
+        return ['label', 'type', 'error', 'value', 'placeholder']
     }
 
     render() {
@@ -41,13 +42,13 @@ class InputWrapper extends BaseComponent {
             <div class="input-wrapper">
                     <input class="input-main" type="${this.props.type}" value="${this.props.value}" placeholder="${this.props.placeholder}">
                     <div class="input-error">${this.props.error}</div>
-        </div>  
-        `;
+            </div>  
+        `
     }
 
     get value() {
-        return this._shadowRoot.querySelector('.input-main').value;
+        return this._shadowRoot.querySelector('.input-main').value
     }
 }
 
-window.customElements.define('input-wrapper', InputWrapper);
+window.customElements.define('input-wrapper', InputWrapper)

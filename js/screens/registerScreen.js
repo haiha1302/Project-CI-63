@@ -92,12 +92,12 @@ class RegisterScreen extends BaseComponent {
                 // check email trùng
                 const response = await firebase
                     .firestore()
-                    .collection("users")
+                    .collection("users-accounts")
                     .where("email", "==", email)
                     .get();
                 // thêm
                 if (response.empty) {
-                    await firebase.firestore().collection("users").add(this.state.data);
+                    await firebase.firestore().collection("users-accounts").add(this.state.data);
                     alert("Sign up successfully");
                     router.navigate("/login");
                 } else {

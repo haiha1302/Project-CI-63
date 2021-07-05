@@ -71,7 +71,7 @@ class LoginScreen extends BaseComponent {
             if (isPassed) {
                 let response = await firebase
                     .firestore()
-                    .collection("users")
+                    .collection("users-accounts")
                     .where("email", "==", email)
                     .where("password", "==", md5(password))
                     .get();
