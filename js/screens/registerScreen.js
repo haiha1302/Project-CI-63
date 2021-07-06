@@ -3,7 +3,7 @@ import { verifyEmail, md5 } from "../utils.js";
 
 class RegisterScreen extends BaseComponent {
     constructor() {
-        super();
+        super()
 
         this.state = {
             errors: {
@@ -18,31 +18,31 @@ class RegisterScreen extends BaseComponent {
                 email: "",
                 password: "",
             },
-        };
+        }
     }
 
     render() {
-        this._shadowRoot.innerHTML = /*html*/ `
-        <link rel="stylesheet" href="./style/register.css">
-        <div class="register-screen">
-            <form class="form-register">
-                <h3 class="section-head">CREATE ACCOUNT</h3>
-                <input-wrapper class="name" type="text" placeholder="Name" name="name" value="${this.state.data.name}" error="${this.state.errors.email}"></input-wrapper>
-                <input-wrapper class="email" type="email" placeholder="Email" name="email" value="${this.state.data.email}" error="${this.state.errors.email}"></input-wrapper>
-                <input-wrapper class="password" type="password" placeholder="Password" name="password" value="${this.state.data.password}" error="${this.state.errors.password}"></input-wrapper>
-                <input-wrapper class="confirm-password" type="password" placeholder="Confirm Password" name="confirm-password" error="${this.state.errors.confirmPassword}"></input-wrapper>
-                <button class="btn-register">CREATE</button>
-            </form>
-            <div class="text-center">
-                <p class="create"><a href="#/login">Already have an account? Login</a></p>
-                
-            </div>
-        </div> 
-        `;
+        this._shadowRoot.innerHTML = `
+            <link rel="stylesheet" href="./style/register.css">
+            <div class="register-screen">
+                <form class="form-register">
+                    <h3 class="section-head">CREATE ACCOUNT</h3>
+                    <input-wrapper class="name" type="text" placeholder="Name" name="name" value="${this.state.data.name}" error="${this.state.errors.email}"></input-wrapper>
+                    <input-wrapper class="email" type="email" placeholder="Email" name="email" value="${this.state.data.email}" error="${this.state.errors.email}"></input-wrapper>
+                    <input-wrapper class="password" type="password" placeholder="Password" name="password" value="${this.state.data.password}" error="${this.state.errors.password}"></input-wrapper>
+                    <input-wrapper class="confirm-password" type="password" placeholder="Confirm Password" name="confirm-password" error="${this.state.errors.confirmPassword}"></input-wrapper>
+                    <button class="btn-register">CREATE</button>
+                </form>
+                <div class="text-center">
+                    <p class="create"><a href="#/login">Already have an account? Login</a></p>
+                    
+                </div>
+            </div> 
+        `
 
         this.$formRegister = this._shadowRoot.querySelector(".form-register");
         this.$formRegister.onsubmit = async (event) => {
-            event.preventDefault();
+            event.preventDefault()
 
             // lấy dữ liệu từ các input-wrapper
             let name = this._shadowRoot.querySelector(".name").value;
@@ -104,10 +104,9 @@ class RegisterScreen extends BaseComponent {
                     alert("Your email has already been used");
                 }
             }
-
-            this.setState(this.state);
-        };
+            this.setState(this.state)
+        }
     }
 }
 
-window.customElements.define("register-screen", RegisterScreen);
+window.customElements.define("register-screen", RegisterScreen)

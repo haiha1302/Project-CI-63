@@ -20,13 +20,8 @@ export const getDatabase = async () => {
     const response = await firebase.firestore().collection('questions').get();
     response.docs.forEach((doc) => {
         const data = doc.data()
-        const dataQuestion = new Quiz (doc.id, data.question, data.answer, data.a, data.b, data.c, data.d)
-        
-        // console.log(dataQuestion);
-        listDatabase.push(dataQuestion)
-       
+        listDatabase.push(data)
     })
-    // console.log(listDatabase[0]);
 }
 
 getDatabase()

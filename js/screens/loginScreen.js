@@ -25,24 +25,24 @@ class LoginScreen extends BaseComponent {
 
     render() {
         this._shadowRoot.innerHTML = /*html*/ `
-        <link rel="stylesheet" href="./style/login.css">
-        <div class="login-screen">
-            <form class="form-login">
-                <h3 class="section-head">LOGIN</h3>
-                <input-wrapper type="email" placeholder="Email" name="email" class="email" error="${this.state.errors.email}" value="${this.state.data.email}" ></input-wrapper>
-                <input-wrapper type="password" placeholder="Password" name="password" class="password" error="${this.state.errors.password}" value="${this.state.data.password}" ></input-wrapper>
-                <button class="btn-login" >SIGN IN</button>
-            </form>
-        
-            <div class="text-center">
-                <p class="create"><a href="#/register">You don't have an account? Register now!</a></p>
-        
-        </div> 
-        `;
+            <link rel="stylesheet" href="./style/login.css">
+            <div class="login-screen">
+                <form class="form-login">
+                    <h3 class="section-head">LOGIN</h3>
+                    <input-wrapper type="email" placeholder="Email" name="email" class="email" error="${this.state.errors.email}" value="${this.state.data.email}" ></input-wrapper>
+                    <input-wrapper type="password" placeholder="Password" name="password" class="password" error="${this.state.errors.password}" value="${this.state.data.password}" ></input-wrapper>
+                    <button class="btn-login" >SIGN IN</button>
+                </form>
+            
+                <div class="text-center">
+                    <p class="create"><a href="#/register">You don't have an account? Register now!</a></p>
+            
+            </div> 
+        `
 
-        this.$formLogin = this._shadowRoot.querySelector(".form-login");
+        this.$formLogin = this._shadowRoot.querySelector(".form-login")
         this.$formLogin.onsubmit = async (event) => {
-            event.preventDefault();
+            event.preventDefault()
 
             // lấy dữ liệu từ các input-wrapper
             let email = this._shadowRoot.querySelector(".email").value;
@@ -89,10 +89,9 @@ class LoginScreen extends BaseComponent {
                     router.navigate("/admin");
                 }
             }
-
-            this.setState(this.state);
-        };
+            this.setState(this.state)
+        }
     }
 }
 
-window.customElements.define("login-screen", LoginScreen);
+window.customElements.define("login-screen", LoginScreen)

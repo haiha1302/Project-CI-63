@@ -4,124 +4,112 @@ import { newQuiz } from "./StartScreen.js"
 
 const styleScreen = `
     <style>
-    #mainBody
-    {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center !important;  
-        justify-content: center; 
-    }
-    
-    #quiz
-    {
-        width: 800px;
-        height: 400px;
-        background-color: #fff;
-        display: grid;
-        grid-template-rows: 60px auto;
-        border-radius: 30px;
-    }
-    
-    .btn-danger {
-        background-color: #ffdc62 !important;
-        color :rgb(24, 8, 235) !important;
-        border : none !important;
-    }
-    
-    #quizHeader
-    {
-        height: 60px;
-        background-color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-        box-shadow: 0 2px 5px 1px rgba(0,0,0,0.3);
-        z-index: 1;
-    }
-    
-    #quizBody
-    {
-        background-color: rgb(211, 209, 209);
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 30px;
-        padding: 10px 20px;
-    }
-    
-    #timer
-    {
-        color: white;
-        padding: 18px;
-        background-color: #4257b2;
-        margin-right: -20px;
-        border-top-right-radius: 27px;
-        box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
-    }
-    
-    .option_group{
-        margin-left: 0;
-        padding-left: 0;
-    }
-    
-    li
-    {
-        list-style-type: none;
-    }
-    
-    .option
-    {
-        border: 3px solid transparent;
-        border-radius: 50px;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 250px;
-        height: 40px;
-        margin: 10px 10px 10px 0;
-        min-height: 42px;
-        transition: 500ms;
-    }
-    
-    .option:hover
-    {
-        cursor: pointer;
-        border: 3px solid #4257b2;
-    }
-    
-    .option:focus {
-        outline: none !important;
-        border: 3px solid #4257b2;
-    }
-    
-    .nxtBtn
-    {
-        background-color: #4257b2 !important;
-        border-radius: 50px !important;
-        padding: 15px !important;
-        border: none !important;
-        float: right;
-    }
-    
-    .exitBtn
-    {
-        border-radius: 50px !important;
-        width: 200px;
-        height: 100px;
-        margin-bottom: 20px;
-        font-size: xx-large !important;
-    }
-    
-    .nxtBtn:focus, .exitBtn:focus
-    {
-        outline: none !important;
-        box-shadow: none !important;
-    }
-    
+        #mainBody {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center !important;  
+            justify-content: center; 
+        }
+        
+        #quiz {
+            width: 800px;
+            height: 400px;
+            background-color: #fff;
+            display: grid;
+            grid-template-rows: 60px auto;
+            border-radius: 30px;
+        }
+        
+        .btn-danger {
+            background-color: #ffdc62 !important;
+            color :rgb(24, 8, 235) !important;
+            border : none !important;
+        }
+        
+        #quizHeader {
+            height: 60px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            box-shadow: 0 2px 5px 1px rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        
+        #quizBody {
+            background-color: rgb(211, 209, 209);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            padding: 10px 20px;
+        }
+        
+        #timer {
+            color: white;
+            padding: 18px;
+            background-color: #4257b2;
+            margin-right: -20px;
+            border-top-right-radius: 27px;
+            box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+        }
+        
+        .option_group {
+            margin-left: 0;
+            padding-left: 0;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        .option {
+            border: 3px solid transparent;
+            border-radius: 50px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 40px;
+            margin: 10px 10px 10px 0;
+            min-height: 42px;
+            transition: 500ms;
+        }
+        
+        .option:hover {
+            cursor: pointer;
+            border: 3px solid #4257b2;
+        }
+        
+        .option:focus {
+            outline: none !important;
+            border: 3px solid #4257b2;
+        }
+        
+        .nxtBtn {
+            background-color: #4257b2 !important;
+            border-radius: 50px !important;
+            padding: 15px !important;
+            border: none !important;
+            float: right;
+        }
+        
+        .exitBtn {
+            border-radius: 50px !important;
+            width: 200px;
+            height: 100px;
+            margin-bottom: 20px;
+            font-size: xx-large !important;
+        }
+        
+        .nxtBtn:focus, .exitBtn:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
     </style>
 `
 
@@ -162,7 +150,7 @@ class MainPlayQuiz extends HTMLElement {
                     </div>
                 </div>
             </div>
-        `;
+        `
 
         this.shadow.innerHTML = template
 
@@ -210,26 +198,25 @@ class MainPlayQuiz extends HTMLElement {
             ansB.textContent = listDatabase[index].b
             ansC.textContent = listDatabase[index].c
             ansD.textContent = listDatabase[index].d
-            console.log(listDatabase)
         }
         getDatabase()
         
         this.shadow.getElementById('btnNext').addEventListener('click', () => {
             index++
-            if(index == listDatabase.length) {
-                router.navigate('/result')
-                firebase.firestore().collection("result").add({
-                    result: sumResult
-                })
-                
-            }
-            else {
+            if(index != listDatabase.length) {
                 quizHeader.textContent = `Q${index + 1} / ${listDatabase.length}` 
                 question.textContent = listDatabase[index].question
                 ansA.textContent = listDatabase[index].a
                 ansB.textContent = listDatabase[index].b
                 ansC.textContent = listDatabase[index].c
                 ansD.textContent = listDatabase[index].d
+                console.log(index);
+            }
+            else {
+                router.navigate('/result')
+                firebase.firestore().collection("result").add({
+                    result: sumResult
+                })
             }
             console.log(correctAns);
             firebase.firestore().collection("correctAns").add({
@@ -240,7 +227,7 @@ class MainPlayQuiz extends HTMLElement {
         this.shadow.getElementById('ansA').addEventListener('click', () => {
             if(listDatabase[index].answer == listDatabase[index].a) {
                 console.log('true')
-                sumResult+=10
+                sumResult += 10
                 console.log(sumResult);
                 correctAns.push(true)
             }

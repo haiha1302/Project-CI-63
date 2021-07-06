@@ -3,89 +3,86 @@ import { Quiz } from "../Quiz.js"
 
 const styleScreen = `
     <style>
-    * {
-	margin: 0;
-	padding: 0;
-	font-family: 'Times New Roman', Times, serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
 
-.container {
-	width: 100%;
-	height: 100%;
-	background: #3b4c8b;
-}
+        .container {
+            width: 100%;
+            height: 100%;
+            background: #3b4c8b;
+        }
 
-.menu ul {
-	display: inline-flex;
-	margin: 50px;
-}
+        .menu ul {
+            display: inline-flex;
+            margin: 50px;
+        }
 
-.menu ul li {
-	list-style: none;
-	margin: 0 20px;
-	color: #fffdfd;
-	cursor : pointer;
-	
-}
+        .menu ul li {
+            list-style: none;
+            margin: 0 20px;
+            color: #fffdfd;
+            cursor : pointer;
+        }
 
-.logo {
-	margin-top: -40px;
-	border: 2px solid transparent;
-	border-radius: 10px;
-	background-image: linear-gradient(#ffdc62,#ffdc62), radial-gradient(circle at top left, #fd00da,#19d7f8);
-	background-origin: border-box;
-	background-clip: content-box,border-box;
-}
+        .logo {
+            margin-top: -40px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            background-image: linear-gradient(#ffdc62,#ffdc62), radial-gradient(circle at top left, #fd00da,#19d7f8);
+            background-origin: border-box;
+            background-clip: content-box,border-box;
+        }
 
-.logo span {
-	display: block;
-	padding: 8px 22px;
-	font-size: 25px;
-    color: #4257b2;
-}
+        .logo span {
+            display: block;
+            padding: 8px 22px;
+            font-size: 25px;
+            color: #4257b2;
+        }
 
-.login-btn  {
-	top : 40px;
-	right: 300px;
-	position: absolute;
-	color: #fff;
-	text-decoration: none;
-	border: 2px solid transparent;
-	border-radius: 10px;
-	background-image: linear-gradient(#4257b2,#4257b2), radial-gradient(circle at top left, #fd00da,#19d7f8);
-	background-origin: border-box;
-	background-clip: content-box,border-box;
-}
+        .login-btn {
+            top : 40px;
+            right: 300px;
+            position: absolute;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            background-image: linear-gradient(#4257b2,#4257b2), radial-gradient(circle at top left, #fd00da,#19d7f8);
+            background-origin: border-box;
+            background-clip: content-box,border-box;
+        }
 
-.login-btn span {
-	display: block;
-	padding: 8px 22px;
-	font-size: 25px;
-}
+        .login-btn span {
+            display: block;
+            padding: 8px 22px;
+            font-size: 25px;
+        }
 
-.register-btn {
-	top : 40px;
-	right: 100px;
-	position: absolute;
-	text-decoration: none;
-	border: 2px solid transparent;
-	border-radius: 10px;
-	background-image: linear-gradient(#ffdc62,#ffdc62), radial-gradient(circle at top left, #fd00da,#19d7f8);
-	background-origin: border-box;
-	background-clip: content-box,border-box;
-}
+        .register-btn {
+            top : 40px;
+            right: 100px;
+            position: absolute;
+            text-decoration: none;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            background-image: linear-gradient(#ffdc62,#ffdc62), radial-gradient(circle at top left, #fd00da,#19d7f8);
+            background-origin: border-box;
+            background-clip: content-box,border-box;
+        }
 
-.register-btn span {
-	display: block;
-	padding: 8px 22px;
-	color :rgb(24, 8, 235);
-	font-size : 25px;
-}
+        .register-btn span {
+            display: block;
+            padding: 8px 22px;
+            color :rgb(24, 8, 235);
+            font-size : 25px;
+        }
 
-
-
-.start {
-	background-color: #1e90ff;
+        .start {
+            background-color: #1e90ff;
             width: 100vw;
             height: 100vh;
             display: flex;
@@ -101,7 +98,7 @@ const styleScreen = `
             margin-top: 10px !important;
             transition: 500ms;
             background-color: #ffdc62 !important;
-	    color :rgb(24, 8, 235)
+            color :rgb(24, 8, 235)
         }
 
         .header {
@@ -110,16 +107,16 @@ const styleScreen = `
             flex-direction: column;
             margin: 50px;
         }
-        
+            
         .nameGame {
             font-weight: 600;
             font-size: 55px;
-	    color :rgb(255, 255, 255)
+            color :rgb(255, 255, 255)
         }
 
         .ruleGameTitle {
             font-size: 35px;
-	    color :rgb(255, 255, 255)
+            color :rgb(255, 255, 255)
         }
 
         .ruleGameSub {
@@ -153,16 +150,15 @@ class StartScreen extends HTMLElement {
             ${styleLink}
             ${styleScreen}
             <div class="container">
-		<div class="menu">
-			<ul>
-				<li class="logo" id="logo-quiz"><span>Quiz App</span></li>
-				<li class="login-btn" id="btn-loginScreen"><span>Login</span></li>
-				<li class="register-btn" id="btn-registerScreen"><span>Register</span></li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="start" id="start">
+                <div class="menu">
+                    <ul>
+                        <li class="logo" id="logo-quiz"><span>Quiz App</span></li>
+                        <li class="login-btn" id="btn-loginScreen"><span>Login</span></li>
+                        <li class="register-btn" id="btn-registerScreen"><span>Register</span></li>
+                    </ul>
+                </div>
+	        </div>
+	        <div class="start" id="start">
                 <header class="header">
                     <h3 class="nameGame">😎Quiz về Tình Bạn Thú Vị Nhất!😎</h3>
                     <div class="ruleGame">

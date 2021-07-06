@@ -96,27 +96,6 @@ export class Quiz {
         <play-screen id="${this._id}" question="${this._question}" answer="${this._answer}" a="${this._a}" b="${this._b}" c="${this._c}" d="${this._d}"></play-screen>
         `
     }
-
-    // clock() {
-    //     this._timeAnswer--;
-    // }
-
-    // outClock() {
-    //     this._timeOut = true;
-    // }
-    
-    // correct() {
-    //     this._countCorrect++;
-    // }
-
-    // notCorrect() {
-    //     this._countCorrect--;
-    // }
-
-    // getScore() {
-    //     if(this._countCorrect <= 0) return 0;
-    //     else return this._countCorrect * this._scoreCount;
-    // }
 }
 
 
